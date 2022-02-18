@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-//oi
-
+//mapeamento chamado: oi
 @WebServlet(urlPatterns = "/oi")
 public class OiMundoServlet extends HttpServlet{
 
