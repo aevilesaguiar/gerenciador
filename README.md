@@ -67,3 +67,70 @@ O termo let de Servlet é um sufixo diminutivo no inglês, e uma tradução livr
 - Uma servlet é um objeto Java que podemos chamar a partir de uma requisição HTTP
 - Para mapear a URL para uma servlet usamos a anotação @WebServlet
 - Uma servlet deve estender a classe HttpServlet e sobrescrever um determinado método (por exemplo service)
+
+## Metodos GET e POST
+
+Deve ter ficado claro que o método "GET" é utilizado para enviar parâmetros na URL, e que ele é problemático quando estamos trabalhando com parâmetros muito longos. Além disso, nem sempre queremos mostrar esses parâmetros.
+
+Já o método "POST" esconde os parâmetros no corpo da requisição, sem mostrá-los na URL. Confira os exercícios e até o próximo vídeo!
+
+- Diferença entre GET e POST
+
+Vimos que existem "métodos" diferentes para enviar uma requisição HTTP. Falamos sobre GET e POST, que são os métodos mais comuns, mas existem outros como PUT ou DELETE.
+Correto!
+
+1) GET foi pensado para acessar algum recurso
+
+2) POST foi pensado para alterar ou criar algum recurso.
+
+3) GET gera problemas quando precisamos enviar muitas informações.
+
+4) GET é o padrão de action
+
+5) Servidor só deveria aceitar um POST
+
+
+No método service não tem importancia se enviamos uma requisição  do tipo post ou get. Tanto faz.
+
+protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
+
+Mas podemos ser mais especifico substituindo service por do Post:
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+**HTTP STATUS 405 - METHOD NOT ALLOWED significa que o esse método/requisição o servidor não aceita.**
+
+
+ **sobre o método doPost:**
+- O método doPost recebe os mesmos parâmetro do método service e doPost tem a mesma assinatura (mesmo retorno, mesmos parâmetros, mesmas exceções).
+- O método doPost só é capaz de lidar com requisições do tipo post
+- O método doGet só é capaz de lidar com requisições do tipo get
+**a respeito do método service de uma HttpServlet:**
+- Lida com requisições do tipo get e do tipo post
+
+
+O retorno de getParameter é sempre uma string.
+
+Criar classes de Negócio ajudam na manutenção e legibilidade do nosso código.
+
+O modelo ou domínio são as classes que representam o mundo real, aquilo que o cliente ou usuário da aplicação define.
+
+Para descobrir quais são as classes e funcionalidades do modelo o analista de requisitos conversa com o cliente e documenta cada funcionalidade.
+
+HTTP Status 500 – Internal Server Error - erro do lado do servidor
+
+**JSP é uma tecnologia que renderiza as páginas no servidor antes de enviá-la.Todo o código (scriptlet) é executado no servidor antes de enviar a resposta para o navegador.**
+
+opção que corretamente exibe "Bem-vindo" através de scriptlet:
+<%
+        String msg = "Bem-vindo";
+        System.out.println(msg);
+%>
+
+opção verdadeira que renderiza corretamente a variável nome através de scriptlet:
+<%
+     String nome = "Nico";
+%>
+<p><%= nome %></p>
+
+Alternativa correta, a sintaxe <%= nome %> é um atalho para não usar out.println(nome);
+

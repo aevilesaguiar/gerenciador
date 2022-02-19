@@ -27,11 +27,22 @@ public class NovaEmpresa extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Cadastrando nova empresa");
+		
 		String nomeEmpresa = request.getParameter("nome");
+		String email = request.getParameter("email");
+		
+		Empresa empresa = new Empresa();
+		empresa.setNome(nomeEmpresa);
+		empresa.setEmail(email);
+		
+		Banco banco = new Banco();
+		banco.adiciona(empresa);
+		
+		
 		PrintWriter out = response.getWriter();
-		out.println("<html><body>Empresa "+nomeEmpresa+" cadastrada com Sucesso!</body></html>");
+		out.println("<html><body>Empresa "+nomeEmpresa+" cadastrada com Sucesso!  Os dados de Email:"+email+"</body></html>");
 		
 	}
 
