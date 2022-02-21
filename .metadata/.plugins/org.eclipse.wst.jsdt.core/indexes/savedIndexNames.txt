@@ -1,6 +1,1 @@
 INDEX VERSION 1.4+D:\CursoAlura\gerenciador\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2176433879.index
-2254237207.index
-1944648522.index
-2887486697.index
-1855936505.index

@@ -23,6 +23,22 @@ Apache x Tomcat
 
 O Tomcat é um servidor de internet também desenvolvido pela Apache Software Foundation. Não é a toa que ele também seja conhecido como Apache Tomcat. ... Basicamente, ele também é um servidor HTTP. A diferença é que ele executa aplicações em Java, em vez de sites estáticos em HTML.
 
+## o que é um Servlet
+
+Servlet nada mais é que uma classe java que recebe tais requisições processa as informações e produz
+um conteudo dinamico. A resposta do servidor de aplicativos Java Será sempre um conteudo que o navegador do cliente possa interpretar, normalmente uma pagina html. Ou seja um servlet é uma classe java que gera um html. Já a pagina JSP é um documento html que permite a execução do código java através de scriptlet. Bem semelhante ao php. O JSP (JAVA SERVER pAGES) é automaticamente transformada em servlet pelo o servidor TomCat. 
+
+
+## Servlet X JSP
+
+É a mesma coisa usar Servlet ou JSP no final o servidor sempre irá transformar a pagina JSP em Servlet.
+
+Uma sugestão é usar JSP para fazer a interface com o usuario, e usar Servlet para a lógica do Sistema.
+
+
+## Sintaxe dos Elementos JSP
+![image](https://user-images.githubusercontent.com/52088444/154868691-09f4300d-be22-4a49-9291-14b51d9a925d.png)
+
 
 ## O que aprendemos sobre Apache Tomcat?
 
@@ -133,4 +149,39 @@ opção verdadeira que renderiza corretamente a variável nome através de scrip
 <p><%= nome %></p>
 
 Alternativa correta, a sintaxe <%= nome %> é um atalho para não usar out.println(nome);
+
+## Para que serve o RequestDispatcher?
+
+Define um objeto que recebe solicitações do cliente e as envia para qualquer recurso (como um servlet, arquivo HTML ou arquivo JSP) no servidor. O contêiner servlet cria o objeto RequestDispatcher, que é usado como um wrapper em torno de um recurso do servidor localizado em um caminho específico ou fornecido por um nome específico;
+
+- Permite, a partir de uma servlet, chamar um JSP.
+- É obtido de um HttpServletRequest através do método getRequestDispatcher().
+
+JSP significa Java Server Pages
+JSP é uma página automaticamente processada pelo Tomcat
+Para gerar HTML dinamicamente no JSP usamos Scriptlets
+Um scriptlet <% %> é um código Java dentro do HTML
+Um scriptlet só funciona em uma página JSP
+Usamos o RequestDispatcher para chamar um JSP a partir da servlet
+Obtemos o RequestDispatcher a partir do HttpServletRequest
+Usamos o Dispatcher para chamar o JSP
+Usamos a requisição para colocar ou pegar um atributo (setAttribute(.., ..) ou getAttribute(..))
+
+
+##  Expression Language- Linguagem de Expressão ${}
+
+## JSTL:
+
+JSTL significa Java Standard Tag Library. É a biblioteca padrão de tags do Java, mas existem outras bibliotecas. Por exemplo, o Spring MVC possui a sua própria.
+
+Precisamos adicionar uma lib específica para que possamos utilizá-la. JSTL não vem embutido com o Tomcat.
+
+**JSTL significa Java Standard Tag Library.**
+
+core: controle de fluxo
+fmt -formatação /i18n(internacionalização)
+sql - executar SQL
+xml -gerar xml
+
+![image](https://user-images.githubusercontent.com/52088444/154866898-2c9ec72f-9043-4f2b-9adf-73b434cc7482.png)
 

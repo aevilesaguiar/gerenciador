@@ -2,13 +2,6 @@
 variável automáticaout, referência para o getWriter() como vimos em NovaEmpresaServlet. 
 Sem seguida, usaremos o println() para imprimir a informação. -->
 
-<%
-String nomeEmpresa = "Joana";
-System.out.println(nomeEmpresa);
-
-String emailEmpresa = "joana@joana.com.br";
-System.out.println(emailEmpresa);
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,12 +10,17 @@ System.out.println(emailEmpresa);
 <title>Insert title here</title>
 
 </head>
-<body>
+ <body>
+        <c:if test= "${not empty empresa}">
+            Empresa ${ empresa } cadastrada com sucesso!
+        </c:if>
 
-<p>Empresa: <%= nomeEmpresa %>     - Email: <%= emailEmpresa %> </p>
-<p>cadastrada com Sucesso!</p>
+        <c:if test= "${empty empresa}">
+            Nenhuma empresa cadastrada!
+        </c:if>
 
-</body>
+
+    </body>
 </html>
 
 
